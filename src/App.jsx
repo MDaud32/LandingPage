@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import logo from './images/logo.svg';
 import intractive from './images/desktop/image-interactive.jpg';
 import onePic from './images/desktop/image-deep-earth.jpg';
@@ -23,6 +24,7 @@ import {
   ImInstagram,
 } from 'react-icons/im';
 function App() {
+  const [isNavOpen, setIsNavOpen] = useState(false);
   return (
     <div className="">
       <div id="hero">
@@ -62,6 +64,68 @@ function App() {
                   Suppots
                 </a>
                 <div className="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+              </div>
+            </div>
+            {/* menu */}
+            <div className="MOBILE-MENU flex justify-end  md:hidden absolute w-[90%] h-full">
+              <div
+                className="HAMBURGER-ICON space-y-2 absolute "
+                onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
+              >
+                <span className="block h-1 w-8 animate-pulse bg-gray-100"></span>
+                <span className="block h-1 w-8 animate-pulse bg-gray-100"></span>
+                <span className="block h-1 w-8 animate-pulse bg-gray-100"></span>
+              </div>
+
+              <div className={isNavOpen ? 'showMenuNav' : 'hideMenuNav'}>
+                <div
+                  className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
+                  onClick={() => setIsNavOpen(false)} // change isNavOpen state to false to close the menu
+                >
+                  <svg
+                    className="h-8 w-8 text-gray-600"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                </div>
+                <div className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px]">
+                  <div className="group">
+                    <a href="" className="">
+                      About
+                    </a>
+                    <div className="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                  </div>
+                  <div className="group">
+                    <a href="" className="">
+                      Careers
+                    </a>
+                    <div className="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                  </div>
+                  <div className="group">
+                    <a href="" className="">
+                      Events
+                    </a>
+                    <div className="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                  </div>
+                  <div className="group">
+                    <a href="" className="">
+                      Products
+                    </a>
+                    <div className="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                  </div>
+                  <div className="group">
+                    <a href="" className="">
+                      Suppots
+                    </a>
+                    <div className="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </nav>
@@ -117,7 +181,7 @@ function App() {
             />
             <img src={twoPicMob} alt="" className="w-full md:hidden" />
             <div className="gradient"></div>
-            <p className="text uppercase">deep earch</p>
+            <p className="text uppercase">Night Arcade</p>
           </div>
           {/* three item */}
           <div className="group relative overflow-hidden md:w-1/4">
@@ -128,7 +192,7 @@ function App() {
             />
             <img src={thirdPicMob} alt="" className="w-full md:hidden" />
             <div className="gradient"></div>
-            <p className="text uppercase">deep earch</p>
+            <p className="text uppercase">Soccer Team</p>
           </div>
           {/* four item */}
           <div className="group relative overflow-hidden md:w-1/4">
@@ -139,7 +203,7 @@ function App() {
             />
             <img src={fourPicMob} alt="" className="w-full md:hidden" />
             <div className="gradient"></div>
-            <p className="text uppercase">deep earch</p>
+            <p className="text uppercase">Pocket Borealis</p>
           </div>
         </div>
         <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-8 justify-between uppercase text-white mt-8">
@@ -152,7 +216,7 @@ function App() {
             />
             <img src={fivePicMob} alt="" className="w-full md:hidden" />
             <div className="gradient"></div>
-            <p className="text uppercase">deep earch</p>
+            <p className="text uppercase">From Above</p>
           </div>
           {/* six item */}
           <div className="group relative overflow-hidden md:w-1/4">
@@ -163,7 +227,7 @@ function App() {
             />
             <img src={sixPicMob} alt="" className="w-full md:hidden" />
             <div className="gradient"></div>
-            <p className="text uppercase">deep earch</p>
+            <p className="text uppercase">Fisheye</p>
           </div>
           {/* seven item */}
           <div className="group relative overflow-hidden md:w-1/4">
@@ -174,7 +238,7 @@ function App() {
             />
             <img src={sevenPicMob} alt="" className="w-full md:hidden" />
             <div className="gradient"></div>
-            <p className="text uppercase">deep earch</p>
+            <p className="text uppercase">Curiosity</p>
           </div>
           {/* eight item */}
           <div className="group relative overflow-hidden md:w-1/4">
@@ -185,9 +249,12 @@ function App() {
             />
             <img src={eightPicMob} alt="" className="w-full md:hidden" />
             <div className="gradient"></div>
-            <p className="text uppercase">deep earch</p>
+            <p className="text uppercase">Grid</p>
           </div>
         </div>
+        <button className="border-2 border-black rounded-md md:hidden block text-black hover:bg-gray-100 w-full mt-8 py-3 text-xl font-semibold">
+          See All
+        </button>
       </div>
       <div className="bg-black text-white flex flex-col md:flex-row justify-around px-16 py-16">
         <div className="flex flex-col text-center ">
